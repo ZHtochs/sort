@@ -11,16 +11,20 @@ public class Insertion extends Sort {
 
     public void sort(int arrays[]) {
         int length = arrays.length;
-        int i;
+        int i, j;
         for (i = 1; i < length; i++) {
-            int j=i;
-            while (j >= 1) {
-                if (arrays[j - 1] > arrays[j]) {
-                    Sort.exchange(arrays, j, j - 1);
-                    j--;
-                } else
-                    break;
+            for (j = i - 1; j >= 0 && arrays[i] < arrays[j]; j--) {
+                //intArrays[i]代表要插入的数字，intArrays[j]代表需要比较大小的数字，j递减
+                //当intArrays[i]大于intArrays[j]时（intArrays[i]插入的位置，也就是说插在j的后一位）或者intArrays[i]为当前数组的最小值时（此时的j为-1,也就是说intArrays[i]要插在第一位）返回j
             }
+            //将intArrays[i]保存住，因为要j以后的数组向后移一位
+            int temp = arrays[i];
+            for (int k = i; k > j + 1; k--) {
+                //将i到j范围的数组向后移一位
+                arrays[k] = arrays[k - 1];
+            }
+            //intArrays[i]插在j的后一位
+            arrays[j + 1] = temp;
         }
     }
 }
