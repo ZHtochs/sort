@@ -26,20 +26,16 @@ public class Heap extends Sort {
     * 交换第一个和最后一个元素，输出最后一个元素（最大值），然后把剩下元素重新调整为大根堆
      * 左节点为2*i+1,右节点为2*(i+1)
     */
-
-    int temp=arrays[parent];
-    int child =2*parent+1;
-    while(child<length){//如果有左节点
-        if(child+1<length && arrays[child]<arrays[child+1])
-            //如果有右节点并且右节点的值大于左节点,则选择右节点
-            child++;
-        if(temp>=arrays[child])
-            break;
-        arrays[parent]=arrays[child];
-        parent=child;
-        child=2*child+1;
-    }
-    arrays[parent]=temp;
+        int child =2*parent+1;
+        while(child<length){//如果有左节点
+            if(child+1<length && arrays[child]<arrays[child+1])
+              //如果有右节点并且右节点的值大于左节点,则选择右节点
+               child++;
+            if(arrays[parent]>=arrays[child])
+               break;
+            Sort.exchange(arrays,parent,child);
+            parent=child;
+        }
     }
 
 }

@@ -13,10 +13,11 @@ public class Insertion extends Sort {
         int length = arrays.length;
         int i;
         for (i = 1; i < length; i++) {
-            while (i >= 1) {
-                if (arrays[i - 1] > arrays[i]) {
-                    Sort.exchange(arrays, i, i - 1);
-                    i--;
+            int j=i;
+            while (j >= 1) {
+                if (arrays[j - 1] > arrays[j]) {
+                    Sort.exchange(arrays, j, j - 1);
+                    j--;
                 } else
                     break;
             }

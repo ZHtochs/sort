@@ -19,10 +19,10 @@ public class Quick extends Sort{
         int j=right;
         while (i!=j){
             //一定要j先动
-            while (j>i && arrays[j]>=arrays[left]){
+            while (j>i && arrays[j]>=arrays[left]){//j找比left小的
                 j--;
             }
-            while (i<j && arrays[i]<=arrays[left]){
+            while (i<j && arrays[i]<=arrays[left]){//i找比left大的
                 i++;
             }
             if(i<j){
@@ -31,6 +31,6 @@ public class Quick extends Sort{
         }
         Sort.exchange(arrays,left,i);
         sort(arrays,left,i-1);
-        sort(arrays,j+1,right);
+        sort(arrays,i+1,right);
     }
 }

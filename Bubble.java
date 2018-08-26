@@ -12,9 +12,9 @@ public class Bubble extends Sort {
         int length=arrays.length;
         int i,j;
         for(i=0;i<length;i++){
-            for (j=i+1;j<length;j++){
-                if(arrays[i]>=arrays[j]){
-                    Sort.exchange(arrays,i,j);
+            for (j=length-1;j>0;j--){
+                if(arrays[j]<=arrays[j-1]){
+                    Sort.exchange(arrays,j-1,j);
                 }
             }
         }
