@@ -6,12 +6,9 @@ public class main {
      */
     public static void run(int intArrays[],Sort sort){
         int arrays[]= intArrays.clone();
-            NumberUtils.display(arrays,false);
+            NumberUtils.display(intArrays,false);
         long startTime=System.currentTimeMillis();
-        if(Quick.class == sort.getClass())
-            sort.sort(arrays,0,arrays.length-1);//快排
-        else
-            sort.sort(arrays);
+        sort.sort(arrays);
         long endTime=System.currentTimeMillis();
             NumberUtils.display(arrays,true);
         System.out.println(sort.getClass()+"排序用时："+(endTime-startTime)+"毫秒");
@@ -21,14 +18,22 @@ public class main {
      */
     public static void main(String[] args){
         //数组长度
-        int length=30000;
+        int length=10000;
         //最大值
-        int max =1000000;;
+        int max =4000000;;
         //随机获取的排序数组
         int arrays[]= NumberUtils.getRandomArs(length,max);
-        Sort Insertion=new Insertion();//插入排序
-        Sort quick=new Quick();//快速排序
+
+       Sort Insertion=new Insertion();//插入排序
+
         run(arrays,Insertion);
-        run(arrays,quick);
+        Sort Insertion1=new Quick();//插入排序
+
+        run(arrays,Insertion1);
+
+
+
+
+
     }
 }

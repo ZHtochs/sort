@@ -12,7 +12,11 @@ public class Quick extends Sort{
 　　答：这是考虑到排序算法的稳定性。
     对于基础类型，相同值是无差别的，排序前后相同值的相对位置并不重要，所以选择更为高效的快速排序，尽管它是不稳定的排序算法；
     而对于非基础类型，排序前后相等实例的相对位置不宜改变，所以选择稳定的归并排序。*/
-    public void sort(int[] arrays,int left, int right){
+    @Override
+    public void sort(int[] arrays){
+        quickSort(arrays,0,arrays.length-1);
+    }
+    public void quickSort(int[] arrays,int left, int right){
         if(left>right)
             return;
         int i=left;
@@ -30,7 +34,7 @@ public class Quick extends Sort{
             }
         }
         Sort.exchange(arrays,left,i);
-        sort(arrays,left,i-1);
-        sort(arrays,i+1,right);
+        quickSort(arrays,left,i-1);
+        quickSort(arrays,i+1,right);
     }
 }

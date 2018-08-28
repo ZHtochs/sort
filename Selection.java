@@ -8,15 +8,17 @@ public class Selection extends Sort {
 // 平均时间复杂度 ---- O(n^2)
 // 所需辅助空间 ------ O(1)
 // 稳定性 ------------ 不稳定
+    @Override
         public void sort(int[] arrays) {
             int length = arrays.length;
-            int i, j;
-            for (i = 0; i < length; i++) {
-                for (j = i + 1; j < length; j++) {
-                    if (arrays[i] >= arrays[j]) {
-                        Sort.exchange(arrays, i, j);
+            for (int i = 0; i < length; i++) {
+                int min=i;
+                for (int j = i + 1; j < length ; j++) {
+                    if (arrays[min] > arrays[j]) {
+                        min=j;
                     }
                 }
+                Sort.exchange(arrays,i,min);
             }
         }
 }
