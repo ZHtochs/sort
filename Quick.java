@@ -16,7 +16,7 @@ public class Quick extends Sort{
     public void sort(int[] arrays){
         quickSort(arrays,0,arrays.length-1);
     }
-    public void quickSort(int[] arrays,int left, int right){
+    private static void quickSort(int[] arrays, int left, int right){
         if(left>right)
             return;
         int i=left;

@@ -27,7 +27,7 @@ public class main {
        Sort Insertion=new Insertion();//插入排序
 
         run(arrays,Insertion);
-        Sort Insertion1=new Quick();//插入排序
+        Sort Insertion1=new Merge();//插入排序
 
         run(arrays,Insertion1);
 

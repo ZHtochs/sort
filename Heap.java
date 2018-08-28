@@ -8,6 +8,7 @@ public class Heap extends Sort {
 // 平均时间复杂度 ---- O(nlogn)
 // 所需辅助空间 ------ O(1)
 // 稳定性 ------------ 不稳定
+    @Override
     public void sort(int[] arrays){
         //建立堆
         for (int i=arrays.length/2;i>=0;i--){
@@ -21,7 +22,7 @@ public class Heap extends Sort {
             heapSort(arrays, 0, i);
         }
     }
-    public static void heapSort(int[] arrays,int parent,int length){
+    private static void heapSort(int[] arrays, int parent, int length){
     /**
     * 交换第一个和最后一个元素，输出最后一个元素（最大值），然后把剩下元素重新调整为大根堆
      * 左节点为2*i+1,右节点为2*(i+1)
